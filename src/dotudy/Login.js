@@ -18,7 +18,7 @@ class Login extends React.Component{
 class Content extends React.Component{
     render(){
         return(
-            <Box 
+            <Box
                 sx={{
                     width: "100%",
                     minHeight: "100vh",
