@@ -118,7 +118,7 @@ class Content extends React.Component{
                             fontSize: "3vh"
                         }}
                     >
-                        <FormattedMessage id="labelManageMent.title" comment="라벨관리"/>
+                    <FormattedMessage id="labelManageMent.title" comment="라벨관리"/>
                     </Typography>
                     <Box
                         sx={{
