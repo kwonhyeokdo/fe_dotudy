@@ -1,21 +1,7 @@
 import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
 import {Stack, Box, TextField, Typography, Divider, Button} from "@mui/material"
 
-class Login extends React.Component{
-    render(){
-        return(
-            <Stack>
-                <Header/>
-                <Content/>
-                <Footer/>
-            </Stack>
-        );
-    }
-}
-
-class Content extends React.Component{
+class Signin extends React.Component{
     render(){
         return(
             <Box
@@ -100,4 +86,4 @@ class Content extends React.Component{
     }
 }
 
-export default Login;
+export default Signin;

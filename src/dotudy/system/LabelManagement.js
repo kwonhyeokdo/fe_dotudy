@@ -1,27 +1,12 @@
 import React from "react";
-import {FormattedMessage} from "react-intl";
-import Header from "dotudy/Header";
-import Footer from "dotudy/Footer";
+import {injectIntl, FormattedMessage} from "react-intl";
 import {DataGrid, GridActionsCellItem, GridToolbarContainer} from '@mui/x-data-grid';
 import {Box, Button, Stack, TextField, Typography} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import LoopIcon from '@mui/icons-material/LoopOutlined';
 import AddIcon from '@mui/icons-material/Add';
 import SaveIcon from '@mui/icons-material/Save';
-
-class LabelManagement extends React.Component{
-    render(){
-        return(    
-            <Stack>
-                <Header/>
-                <Content/>
-                <Footer/>
-            </Stack>
-        );
-    }
-}
-
-class Content extends React.Component{
+class ContentHoc extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -131,7 +116,7 @@ class Content extends React.Component{
                         }}
                     >
                         <TextField
-                            label="라벨코드, 라벨명"
+                            label= {this.props.intl.formatMessage({id: 'labelManageMent.codeAndLabel'})}
                             variant="outlined"
                             size="small"
                             sx={{
@@ -193,5 +178,7 @@ class Content extends React.Component{
         );
     }
 }
+
+const LabelManagement = injectIntl(ContentHoc);
 
 export default LabelManagement;
