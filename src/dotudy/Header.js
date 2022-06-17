@@ -14,12 +14,12 @@ class Header extends React.Component{
     render(){
         return (
             <Box>
-                <Box
+                {/* <Box
                     sx={{
                         width: "100%",
                         height: 50
                     }}
-                />
+                /> */}
                 <AppBar position="fixed">
                     <Toolbar variant="dense">
                         <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>

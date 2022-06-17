@@ -1,10 +1,12 @@
 import React from "react";
 import FindId from "./FindId";
+import FindPw from "./FindPw";
 import {FormattedMessage, useIntl} from "react-intl";
 import {Stack, Box, TextField, Typography, Divider, Button} from "@mui/material"
 
 export default function Signin(){
     const [openFindId, setOpenFindId] = React.useState(false);
+    const [openFindPw, setOpenFindPw] = React.useState(false);
     const intl = useIntl();
 
     return(
@@ -23,7 +25,7 @@ export default function Signin(){
                     variant="h3"
                     marginBottom={3}
                 >
-                    <FormattedMessage id="signin.title" comment="DOTUDY"/>
+                    <FormattedMessage id="signin.title">DOTUDY</FormattedMessage>
                 </Typography>
                 <TextField
                     required
@@ -59,13 +61,13 @@ export default function Signin(){
                 <Button
                     variant="contained"
                 >
-                    <FormattedMessage id="signin.signin" comment="로그인"/>
+                    <FormattedMessage id="signin.signin">로그인</FormattedMessage>
                 </Button>
                 <Button
                     variant="outlined"
                     onClick={()=>window.location.href = "/signup"}
                 >
-                    <FormattedMessage id="signin.signup" comment="회원가입"/>
+                    <FormattedMessage id="signin.signup">회원가입</FormattedMessage>
                 </Button>
                 <Divider light/>
                 <Stack
@@ -79,14 +81,15 @@ export default function Signin(){
                     }}
                 >
                     <Button onClick={()=>setOpenFindId(true)}>
-                        <FormattedMessage id="signin.find.id" comment="아이디 찾기"/>
+                        <FormattedMessage id="signin.find.id">아이디 찾기</FormattedMessage>
                     </Button>
-                    <Button>
-                        <FormattedMessage id="signin.find.password" comment="비밀번호 찾기"/>
+                    <Button onClick={()=>setOpenFindPw(true)}>
+                        <FormattedMessage id="signin.find.password">비밀번호 찾기</FormattedMessage>
                     </Button>
                 </Stack>
             </Stack>
-            <FindId open={openFindId} close={()=>setOpenFindId(false)}/>
+            { openFindId && <FindId open={openFindId} close={()=>{setOpenFindId(false)}}/>}
+            { openFindPw && <FindPw open={openFindPw} close={()=>{setOpenFindPw(false)}}/>}
         </Box>
     );
 }
