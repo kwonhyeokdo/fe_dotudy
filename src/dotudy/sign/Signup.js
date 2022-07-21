@@ -1,7 +1,8 @@
 import React from "react";
 import {Box, Button, Divider, Stack, TextField, Typography} from "@mui/material";
 import {FormattedMessage, injectIntl} from "react-intl";
-import {isEmpty, REG_SET} from "dotudy/Util"
+import {isEmpty, REG_SET} from "dotudy/Util";
+import axios from "axios";
 
 class ContentHoc extends React.Component{
     constructor(props){
@@ -229,6 +230,9 @@ class ContentHoc extends React.Component{
         });
         this.auth_inputRef.current.value = "";
 
+        axios.get("/dotudy/signup/phone").then((response)=>{
+            console.log(response);
+        });
         // ajax로 서버에게 인증번호 요청
             // callback 받은 후 타이머 발동
             if(this.authTimer != null){
